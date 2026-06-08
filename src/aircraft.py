@@ -74,4 +74,4 @@ class Aircraft:
         return self._altitude > other.altitude
 
     def __str__(self):
-        return f"{self._callsign}, {self._country}, speed={self._velocity}, altitude={self._altitude}"
+        return f"{self._callsign} {self._country} speed={self._velocity} altitude={self._altitude}"

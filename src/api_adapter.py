@@ -28,6 +28,11 @@ class APIAdapter(APIBase):
 
         data = response.json()
 
+        # Страна не найдена или API вернул пустой ответ.
+        if not data:
+            self.aeroplanes = {"states": []}
+            return
+
         geo_coordinates = data[0].get("boundingbox")
 
         # Параметры для фильтрации самолетов по их географическим координатам.
