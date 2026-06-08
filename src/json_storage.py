@@ -11,7 +11,13 @@ class JsonStorage(StorageBase):
     def _read_file(self) -> list[dict]:
         try:
             with open(self.filename, "r", encoding="utf-8") as file:
-                return json.load(file)
+                content = file.read().strip()
+
+                if not content:
+                    return []
+
+                return json.loads(content)
+
         except FileNotFoundError:
             return []
 
