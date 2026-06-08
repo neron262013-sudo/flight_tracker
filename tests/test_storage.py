@@ -1,8 +1,8 @@
 import os
 import tempfile
 
-from src.json_storage import JsonStorage
 from src.aircraft import Aircraft
+from src.json_storage import JsonStorage
 
 
 def test_add_and_get_aircraft():
@@ -18,6 +18,7 @@ def test_add_and_get_aircraft():
         assert result[0].callsign == "ABC123"
 
     os.remove(tmp.name)
+
 
 def test_delete_aircraft():
     with tempfile.NamedTemporaryFile(delete=False) as tmp:

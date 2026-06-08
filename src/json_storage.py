@@ -1,6 +1,7 @@
 import json
-from src.storage_base import StorageBase
+
 from src.aircraft import Aircraft
+from src.storage_base import StorageBase
 
 
 class JsonStorage(StorageBase):
@@ -28,12 +29,14 @@ class JsonStorage(StorageBase):
     def add_aircraft(self, aircraft: Aircraft) -> None:
         data = self._read_file()
 
-        data.append({
-            "country": aircraft.country,
-            "callsign": aircraft.callsign,
-            "velocity": aircraft.velocity,
-            "altitude": aircraft.altitude,
-        })
+        data.append(
+            {
+                "country": aircraft.country,
+                "callsign": aircraft.callsign,
+                "velocity": aircraft.velocity,
+                "altitude": aircraft.altitude,
+            }
+        )
 
         self._write_file(data)
 
@@ -57,9 +60,6 @@ class JsonStorage(StorageBase):
     def delete_aircraft(self, aircraft: Aircraft) -> None:
         data = self._read_file()
 
-        data = [
-            item for item in data
-            if item.get("callsign") != aircraft.callsign
-        ]
+        data = [item for item in data if item.get("callsign") != aircraft.callsign]
 
         self._write_file(data)

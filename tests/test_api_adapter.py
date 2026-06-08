@@ -1,4 +1,5 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock, patch
+
 from src.api_adapter import APIAdapter
 
 
@@ -8,16 +9,7 @@ def test_get_aeroplanes(mock_get):
     mock_response = MagicMock()
 
     # ✔ ВАЖНО: это ДОЛЖЕН БЫТЬ список, а не dict
-    mock_response.json.return_value = [
-        {
-            "boundingbox": [
-                "10.0",
-                "20.0",
-                "30.0",
-                "40.0"
-            ]
-        }
-    ]
+    mock_response.json.return_value = [{"boundingbox": ["10.0", "20.0", "30.0", "40.0"]}]
 
     mock_get.return_value = mock_response
 

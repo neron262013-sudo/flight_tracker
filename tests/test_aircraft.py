@@ -1,4 +1,5 @@
 import pytest
+
 from src.aircraft import Aircraft
 
 

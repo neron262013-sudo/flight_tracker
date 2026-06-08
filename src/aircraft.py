@@ -1,10 +1,5 @@
 class Aircraft:
-    def __init__(
-            self,
-            country: str,
-            callsign: str,
-            velocity: float,
-            altitude: float) -> None:
+    def __init__(self, country: str, callsign: str, velocity: float, altitude: float) -> None:
 
         # Валидация
         if not isinstance(country, str) or not country:
