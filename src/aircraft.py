@@ -19,13 +19,32 @@ class Aircraft:
         if altitude < 0:
             raise ValueError("Высота не может быть отрицательной")
 
-        self.country = country
-        self.callsign = callsign
-        self.velocity = velocity
-        self.altitude = altitude
+        self._country = country
+        self._callsign = callsign
+        self._velocity = velocity
+        self._altitude = altitude
+
+    @property
+    def velocity(self):
+        return self._velocity
+
+    @property
+    def altitude(self):
+        return self._altitude
+
+    @property
+    def country(self):
+        return self._country
+
+    @property
+    def callsign(self):
+        return self._callsign
 
     def is_faster_than(self, other) -> bool:
-        return self.velocity > other.velocity
+        return self._velocity > other.velocity
 
     def is_higher_than(self, other) -> bool:
-        return self.altitude > other.altitude
+        return self._altitude > other.altitude
+
+    def __str__(self):
+        return f"{self._callsign}, {self._country}, speed={self._velocity}, altitude={self._altitude}"
