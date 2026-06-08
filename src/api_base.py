@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 
 
-class ApiBase(ABC):
+class APIBase(ABC):
     @abstractmethod
-    def get_data(self, *args, **kwargs):
+    def get_aeroplanes(self, country: str) -> None:
         """Получение данных из API."""
         pass
